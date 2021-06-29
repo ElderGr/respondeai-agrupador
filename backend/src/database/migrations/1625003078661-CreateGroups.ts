@@ -22,6 +22,10 @@ export default class CreateGroups1625003078661 implements MigrationInterface {
                     type: 'varchar',
                 },
                 {
+                    name: 'link',
+                    type: 'varchar',
+                },
+                {
                     name: 'latitude',
                     type: 'decimal',
                 },

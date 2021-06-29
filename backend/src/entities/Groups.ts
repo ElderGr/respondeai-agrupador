@@ -1,4 +1,10 @@
-import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { 
+    Column, 
+    CreateDateColumn, 
+    Entity, 
+    PrimaryGeneratedColumn, 
+    UpdateDateColumn 
+} from "typeorm";
 
 @Entity('groups')
 class Groups {
@@ -10,6 +16,9 @@ class Groups {
 
     @Column()
     description: string;
+
+    @Column()
+    link: string;
 
     @Column()
     latitude: number;
