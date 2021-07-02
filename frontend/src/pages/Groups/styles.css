@@ -2,3 +2,35 @@
     width: 100vw;
     height: 100vh;
 }
+
+#page-groups button {
+    position: absolute;
+    left: 1rem;
+    bottom: 2rem;
+    z-index: 999;
+
+    padding: 1% 2.5%;
+    background: var(--primary-color);
+    border-radius: 8px;
+    text-decoration: none;
+    border: none;
+
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  
+    color: #fff;
+}
+#page-groups button:hover{
+    background: #4a78eb;
+}
+
+
+#page-groups button span{
+    font-size: 12pt;
+    font-weight: bold;
+}
+
+#page-groups button svg{
+    margin-right: 1.2rem;
+}

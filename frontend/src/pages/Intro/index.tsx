@@ -6,7 +6,7 @@ import { FiLogIn } from 'react-icons/fi'
 
 const Intro: React.FC = () => {
   return (
-    <div id='page-home'>
+    <div id='page-intro'>
         <div className="content">
           <main>
               <h1>Agrupador, o seu centralizador</h1>
