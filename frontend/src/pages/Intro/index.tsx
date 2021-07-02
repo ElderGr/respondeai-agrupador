@@ -12,7 +12,7 @@ const Intro: React.FC = () => {
               <h1>Agrupador, o seu centralizador</h1>
               <p>Ache o link para grupos de estudos próximos a sua localização.</p>
 
-              <Link to="/listGroups">
+              <Link to="/groups">
                   <span><FiLogIn /></span>
                   <strong>Encontrar Grupos!</strong>
               </Link>
