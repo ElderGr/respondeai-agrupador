@@ -3,7 +3,7 @@
     height: 100vh;
 }
 
-#page-groups button {
+#page-groups > button {
     position: absolute;
     left: 1rem;
     bottom: 2rem;
@@ -21,7 +21,7 @@
   
     color: #fff;
 }
-#page-groups button:hover{
+#page-groups>button:hover{
     background: #4a78eb;
 }
 
@@ -34,3 +34,82 @@
 #page-groups button svg{
     margin-right: 1.2rem;
 }
+
+#page-groups form{
+    position: absolute;
+    z-index: 999;
+    left: 1rem;
+    bottom: 7rem;
+    
+    margin: 1rem auto;
+    padding: 64px;
+    max-width: 600px;
+    background: #FFF;
+    border-radius: 8px;
+}
+
+#page-groups form h1 {
+    font-size: 36px;
+    margin-bottom: 2rem;
+  }
+
+  #page-groups form .field-group {
+    flex: 1;
+    display: flex;
+  }
+  
+  #page-groups form .field {
+    flex: 1;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 35px;
+  }
+  
+  #page-groups form .field input[type=text],
+  #page-groups form .field input[type=email],
+  #page-groups form .field input[type=number] {
+    flex: 1;
+    background: #F0F0F5;
+    border-radius: 8px;
+    border: 0;
+    padding: 16px 24px;
+    font-size: 16px;
+    color: #6C6C80;
+  }
+
+  #page-groups form .field input::placeholder {
+    color: #A0A0B2;
+  }
+  
+  #page-groups form .field label {
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
+
+  #page-groups form .field span {
+    font-size: 13px;
+    margin-top: 5px;
+    position: absolute;
+    bottom: -1.2rem;
+    color: rgb(190, 18, 18);
+    font-weight: bold;
+  }
+  
+  #page-groups form button {
+    width: 100%;
+    height: 56px;
+    background: var(--success-color);
+    border-radius: 8px;
+    color: #FFF;
+    font-weight: bold;
+    font-size: 16px;
+    border: 0;
+    align-self: flex-end;
+    transition: background-color 0.2s;
+    cursor: pointer;
+  }
+  
+  #page-groups form button:hover {
+    background: #2FB86E;
+  }
