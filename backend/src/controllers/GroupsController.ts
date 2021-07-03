@@ -1,38 +1,19 @@
 import { Request, Response } from "express";
-import { getRepository } from "typeorm";
-import Groups from "../entities/Groups";
-import { calculeHaversine } from "../utils/calculeHaversine";
+
+import ListGroupService from "../services/ListGroupService";
+import CreateGroupService from "../services/CreateGroupService";
 
 export default class GroupsController{
     public async index(request: Request, response: Response): Promise<Response>{
-        const { latitude, longitude } = request.headers
+        const { lat, lng } = request.query
         try{
-            const groupRepository = getRepository(Groups)
-            const groups = await groupRepository.find()
-            
-            const formatedLatitude = Number(latitude)
-            const formatedLongitude = Number(longitude)
-
-            if(typeof formatedLatitude === 'number'){
-                throw new Error('A latitude deve ser um número inteiro')
-            }
-
-            if(typeof formatedLongitude === 'number'){
-                throw new Error(`A longitude deve ser um número inteiro`)
-            }
-
-            const nearGroups = groups.filter(group => {
-                if(calculeHaversine(
-                    Number(formatedLatitude), 
-                    Number(group.latitude), 
-                    Number(formatedLongitude), 
-                    Number(group.longitude)
-                ) <= 1){
-                    return group
-                }
+            const listGroupService = new ListGroupService()
+            const groups = await listGroupService.execute({
+                latitude: lat as string,
+                longitude: lng as string,
             })
     
-            return response.json(nearGroups)
+            return response.json(groups)
         }catch(err){
             return response.status(500).json(err)
         }
@@ -48,28 +29,15 @@ export default class GroupsController{
         } = request.body
         
         try{
-            const groupRepository = getRepository(Groups)
-            
-            const formatedLatitude = Number(latitude)
-            const formatedLongitude = Number(longitude)
+            const createGroupService = new CreateGroupService()
 
-            if(typeof formatedLatitude === 'number'){
-                throw new Error('A latitude deve ser um número inteiro')
-            }
-
-            if(typeof formatedLongitude === 'number'){
-                throw new Error(`A longitude deve ser um número inteiro`)
-            }
-
-            const group = groupRepository.create({
-                description,
+            const group = await createGroupService.execute({ 
                 name,
+                description,
+                link,
                 latitude,
-                longitude,
-                link
+                longitude
             })
-                
-            await groupRepository.save(group)
                 
             return response.json(group)
         }catch(err){

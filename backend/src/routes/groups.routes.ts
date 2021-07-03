@@ -8,9 +8,9 @@ const groupsController = new GroupsController()
 groupsRouter.get(
     '/',
     celebrate({
-        [Segments.HEADERS]: {
-            latitude: Joi.string().required(),
-            longitude: Joi.string().required()
+        [Segments.QUERY]: {
+            lat: Joi.number().required(),
+            lng: Joi.number().required()
         }
     }), 
     groupsController.index)
@@ -22,8 +22,8 @@ groupsRouter.post(
             name: Joi.string().required(),
             description: Joi.string().required(),  
             link: Joi.string().required(),
-            latitude: Joi.string().required(),
-            longitude: Joi.string().required(),
+            latitude: Joi.number().required(),
+            longitude: Joi.number().required(),
         }
     }), 
     groupsController.create)

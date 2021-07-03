@@ -1,28 +1,35 @@
 {
-   "name": "AGRUPADOR",
-   "version": "1.0.0",
-   "main": "index.js",
-   "license": "MIT",
-   "scripts": {
-      "dev": "ts-node-dev --transpile-only --ignore-watch node_modules src/server.ts",
-      "start": "ts-node src/server.ts",
-      "typeorm": "ts-node-dev ./node_modules/typeorm/cli.js"
-   },
-   "dependencies": {
-      "celebrate": "^14.0.0",
-      "cors": "^2.8.5",
-      "express": "^4.17.1",
-      "mysql": "^2.14.1",
-      "pg": "^8.6.0",
-      "reflect-metadata": "^0.1.10",
-      "ts-node-dev": "^1.1.6",
-      "typeorm": "0.2.34"
-   },
-   "devDependencies": {
-      "@types/cors": "^2.8.10",
-      "@types/express": "^4.17.12",
-      "@types/node": "^8.0.29",
-      "@types/typescript": "^2.0.0",
-      "typescript": "3.3.3333"
-   }
+  "name": "AGRUPADOR",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "ts-node-dev --transpile-only --ignore-watch node_modules src/server.ts",
+    "start": "ts-node src/server.ts",
+    "typeorm": "ts-node-dev ./node_modules/typeorm/cli.js",
+    "pretest": "SET NODE_ENV=test && ts-node-dev ./node_modules/typeorm/cli.js -c test migration:run",
+    "test": "sh -ac './.env.test; jest'",
+    "posttest": "SET NODE_ENV=test && ts-node-dev ./node_modules/typeorm/cli.js -c test migration:revert"
+  },
+  "dependencies": {
+    "celebrate": "^14.0.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "jest": "^27.0.6",
+    "mysql": "^2.14.1",
+    "pg": "^8.6.0",
+    "reflect-metadata": "^0.1.10",
+    "ts-node-dev": "^1.1.6",
+    "typeorm": "0.2.34"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.10",
+    "@types/express": "^4.17.12",
+    "@types/jest": "^26.0.23",
+    "@types/node": "^8.0.29",
+    "@types/typescript": "^2.0.0",
+    "sqlite3": "^5.0.2",
+    "ts-jest": "^27.0.3",
+    "typescript": "3.3.3333"
+  }
 }
