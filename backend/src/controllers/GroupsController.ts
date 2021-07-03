@@ -10,11 +10,22 @@ export default class GroupsController{
             const groupRepository = getRepository(Groups)
             const groups = await groupRepository.find()
             
+            const formatedLatitude = Number(latitude)
+            const formatedLongitude = Number(longitude)
+
+            if(typeof formatedLatitude === 'number'){
+                throw new Error('A latitude deve ser um número inteiro')
+            }
+
+            if(typeof formatedLongitude === 'number'){
+                throw new Error(`A longitude deve ser um número inteiro`)
+            }
+
             const nearGroups = groups.filter(group => {
                 if(calculeHaversine(
-                    Number(latitude), 
+                    Number(formatedLatitude), 
                     Number(group.latitude), 
-                    Number(longitude), 
+                    Number(formatedLongitude), 
                     Number(group.longitude)
                 ) <= 1){
                     return group
@@ -38,7 +49,18 @@ export default class GroupsController{
         
         try{
             const groupRepository = getRepository(Groups)
-                
+            
+            const formatedLatitude = Number(latitude)
+            const formatedLongitude = Number(longitude)
+
+            if(typeof formatedLatitude === 'number'){
+                throw new Error('A latitude deve ser um número inteiro')
+            }
+
+            if(typeof formatedLongitude === 'number'){
+                throw new Error(`A longitude deve ser um número inteiro`)
+            }
+
             const group = groupRepository.create({
                 description,
                 name,
