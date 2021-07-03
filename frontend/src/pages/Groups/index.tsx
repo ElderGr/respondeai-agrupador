@@ -1,7 +1,7 @@
 import React, { useState, useEffect, Fragment, ChangeEvent, FormEvent } from 'react';
 import { MapContainer, TileLayer, Marker, Popup, Circle, Tooltip } from 'react-leaflet'
 import ClipLoader from 'react-spinners/ClipLoader'
-import { FiPlus } from 'react-icons/fi';
+import { FiPlus, FiX } from 'react-icons/fi';
 
 import GroupsModel from '../../entities/GroupsModel';
 import api from '../../services/api'
@@ -112,15 +112,14 @@ const Groups: React.FC = () => {
                         {groups.map(group => (
                             <Marker key={group.id} position={[group.latitude, group.longitude]}>
                                 <Tooltip>{group.name}</Tooltip>
-                                <Popup >
+                                <Popup className='popMarker'>
                                     <div>
-                                        <span>Nome do grupo: </span>
-                                        <p>{group.name}</p>
+                                        <label>Nome do grupo</label>
+                                        <h1>{group.name}</h1>
                                     </div>
-                                    <div>
-                                        <span>Link para o grupo: </span>
-                                        <a target='_blank' href={group.link} rel="noreferrer">{group.link}</a>
-                                    </div>
+                                    <a target='_blank' href={group.link} rel="noreferrer">
+                                        Entrar no grupo
+                                    </a>
                                 </Popup>
                             </Marker>
                         ))}
@@ -167,8 +166,17 @@ const Groups: React.FC = () => {
             )}
 
             <button onClick={handleFormVisibility} type='button'>
-                <FiPlus size={20} />
-                <span>Adicionar novo Grupo</span>
+                {!formVisible ? (
+                    <Fragment>
+                        <FiPlus size={20} />
+                        <span>Adicionar novo Grupo</span>
+                    </Fragment>
+                ) : (
+                    <Fragment>
+                        <FiX size={20} />
+                        <span>Fechar</span>
+                    </Fragment>
+                )}
             </button>
         </div>
     );

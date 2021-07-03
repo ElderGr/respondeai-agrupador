@@ -3,6 +3,32 @@
     height: 100vh;
 }
 
+.leaflet-popup-content>div>label{
+  font-size: 14px;
+  margin-bottom: 8px;
+  color: var(--text-color);
+}
+
+.leaflet-popup-content>a{
+  margin-top: 1rem;
+  padding: 0.7rem 1rem;
+  background: var(--primary-color);
+  border-radius: 4px;
+  text-decoration: none;
+  border: none;
+
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+
+  font-weight: bold;
+  color: #fff;
+}
+
+.leaflet-popup-content>a:hover{
+  background: #4a78eb;
+}
+
 #page-groups > button {
     position: absolute;
     left: 1rem;
@@ -20,6 +46,7 @@
     overflow: hidden;
   
     color: #fff;
+    padding: 0.9rem 1rem;
 }
 #page-groups>button:hover{
     background: #4a78eb;
@@ -39,11 +66,11 @@
     position: absolute;
     z-index: 999;
     left: 1rem;
-    bottom: 7rem;
+    bottom: 6rem;
     
     margin: 1rem auto;
-    padding: 64px;
-    max-width: 600px;
+    padding: 2.5rem;
+    max-width: 500px;
     background: #FFF;
     border-radius: 8px;
 }
@@ -66,9 +93,7 @@
     margin-bottom: 35px;
   }
   
-  #page-groups form .field input[type=text],
-  #page-groups form .field input[type=email],
-  #page-groups form .field input[type=number] {
+  #page-groups form .field input[type=text] {
     flex: 1;
     background: #F0F0F5;
     border-radius: 8px;
@@ -112,4 +137,12 @@
   
   #page-groups form button:hover {
     background: #2FB86E;
+  }  
+
+  @media(max-width: 768px){
+    #page-groups form{
+      left: 1rem;
+      bottom: 5rem;
+    }
   }
+  

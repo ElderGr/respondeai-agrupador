@@ -80,22 +80,40 @@
     background: #4a78eb;
   }
   
-  @media(max-width: 900px) {
+  @media(min-width: 769px) and (max-width: 1024px){
+    #page-intro {
+      background-position: bottom;
+      background-size: 85%;
+    }
     #page-intro .content {
       align-items: center;
+    }
+    #page-intro .content main {
+      justify-content: start;
+      margin-top: 10rem;
       text-align: center;
     }
-  
-    #page-intro .content main {
+
+    #page-intro .content main a{
+      max-width: 100%;
+    }
+  }
+  @media(max-width: 768px){
+    #page-intro {
+      background-position: bottom;
+      background-size: 85%;
+    }
+    #page-intro .content {
       align-items: center;
     }
-  
-    #page-intro .content main h1 {
-      font-size: 42px;
+    #page-intro .content main {
+      justify-content: start;
+      margin-top: 10rem;
+      text-align: center;
     }
-  
-    #page-intro .content main p {
-      font-size: 24px;
+
+    #page-intro .content main a{
+      max-width: 100%;
     }
   }
   
