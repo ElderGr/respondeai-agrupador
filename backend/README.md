@@ -4,8 +4,7 @@
     </a>
 </h1>
 
-# Intro
-Backend construido em com NodeJS
+Backend do AGRUPADOR, aplicação que exibe grupos próximos a sua localização.
 
 
 # Configurações
