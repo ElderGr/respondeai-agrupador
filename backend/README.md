@@ -1,6 +1,6 @@
 <h1 align="center">
     <a href="https://www.respondeai.com.br/" target="_blank"> 
-        <img alt="Rocketseat" title="#Rocketseat" src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.respondeai.com.br%2Fmaterias&psig=AOvVaw0WPJf1eHkkoaeFV5Y3peQU&ust=1625504178024000&source=images&cd=vfe&ved=0CAoQjRxqFwoTCKCgsIvxyfECFQAAAAAdAAAAABAD" width="350px" />
+        <img alt="Respondeai" title="#Respondeai" src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.respondeai.com.br%2Fmaterias&psig=AOvVaw0WPJf1eHkkoaeFV5Y3peQU&ust=1625504178024000&source=images&cd=vfe&ved=0CAoQjRxqFwoTCKCgsIvxyfECFQAAAAAdAAAAABAD" width="350px" />
     </a>
 </h1>
 
