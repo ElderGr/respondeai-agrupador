@@ -9,8 +9,8 @@ export default class GroupsController{
         try{
             const listGroupService = new ListGroupService()
             const groups = await listGroupService.execute({
-                latitude: lat as string,
-                longitude: lng as string,
+                latitude: Number(lat),
+                longitude: Number(lng),
             })
     
             return response.json(groups)

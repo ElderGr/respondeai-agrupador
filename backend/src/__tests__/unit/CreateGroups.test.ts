@@ -1,10 +1,12 @@
-import { createConnection } from 'typeorm'
+import { Connection, createConnection } from 'typeorm'
+import Groups from '../../entities/Groups'
 import CreateGroupService from '../../services/CreateGroupService'
 
+let connection: Connection
 
 describe('Create groups', () =>{
     beforeAll(async () => {
-        await createConnection({
+        connection = await createConnection({
             name: 'test',
             type: 'sqlite',
             database: './src/__tests__/database.sqlite',
@@ -19,6 +21,11 @@ describe('Create groups', () =>{
             }
         })
     })
+
+    beforeEach(async () => {
+        await connection.createQueryBuilder().delete().from(Groups).execute()
+    })
+
 
     it('it should be able to Create a group', async () => {
         const createGroupService = new CreateGroupService()
