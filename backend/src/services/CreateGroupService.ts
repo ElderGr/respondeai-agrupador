@@ -19,9 +19,9 @@ class CreateGroupService {
     }: IRequestInterface): Promise<Groups> {
         const groupRepository = getRepository(Groups, process.env.NODE_ENV ? process.env.NODE_ENV : 'default')
 
-        if(isNaN(latitude)){
-            throw new Error('A latitude deve ser um número inteiro')
-        }
+        // if(isNaN(latitude)){
+        //     throw new Error('A latitude deve ser um número inteiro')
+        // }
 
         if(isNaN(longitude)){
             throw new Error(`A longitude deve ser um número inteiro`)

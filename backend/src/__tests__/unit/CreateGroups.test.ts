@@ -2,7 +2,7 @@ import { createConnection } from 'typeorm'
 import CreateGroupService from '../../services/CreateGroupService'
 
 
-describe('Groups', () =>{
+describe('Create groups', () =>{
     beforeAll(async () => {
         await createConnection({
             name: 'test',
@@ -35,6 +35,7 @@ describe('Groups', () =>{
 
     it('it not should be able to create an group with a invalid latitude value', async () => {
         const createGroupService = new CreateGroupService()
+        let error
         try{
             await createGroupService.execute({
                 name: 'Banco santander',
@@ -44,12 +45,15 @@ describe('Groups', () =>{
                 link: 'https://whatsapplink.com',
             })
         }catch(err){
-            expect(err).toBeInstanceOf(Error);
+            error = err
         }
+        
+        expect(error).toBeInstanceOf(Error);
     })
 
     it('it not should be able to create an group with a invalid longitude value', async () => {
         const createGroupService = new CreateGroupService()
+        let error
         try{
             await createGroupService.execute({
                 name: 'Banco santander',
@@ -59,7 +63,9 @@ describe('Groups', () =>{
                 link: 'https://whatsapplink.com',
             })
         }catch(err){
-            expect(err).toBeInstanceOf(Error);
+            error = err
         }
+
+        expect(error).toBeInstanceOf(Error);
     })
 })

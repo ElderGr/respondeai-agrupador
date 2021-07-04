@@ -3,8 +3,8 @@ import Groups from "../entities/Groups"
 import { calculeHaversine } from "../utils/calculeHaversine"
 
 interface IRequestInterface {
-    latitude: string; 
-    longitude: string; 
+    latitude: number; 
+    longitude: number; 
 }
 
 class ListGroupService {
@@ -15,22 +15,19 @@ class ListGroupService {
         const groupRepository = getRepository(Groups, process.env.NODE_ENV ? process.env.NODE_ENV : 'default')
         const groups = await groupRepository.find()
 
-        const formatedLatitude = Number(latitude)
-        const formatedLongitude = Number(longitude)
-
-        if(typeof formatedLatitude !== 'number'){
+        if(isNaN(latitude)){
             throw new Error('A latitude deve ser um número inteiro')
         }
 
-        if(typeof formatedLongitude !== 'number'){
+        if(isNaN(longitude)){
             throw new Error(`A longitude deve ser um número inteiro`)
         }
 
         const nearGroups = groups.filter(group => {
             if(calculeHaversine(
-                Number(formatedLatitude), 
+                Number(latitude), 
                 Number(group.latitude), 
-                Number(formatedLongitude), 
+                Number(longitude), 
                 Number(group.longitude)
             ) <= 1){
                 return group

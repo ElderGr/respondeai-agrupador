@@ -9,7 +9,7 @@
     "typeorm": "ts-node-dev ./node_modules/typeorm/cli.js",
     "pretest": "SET NODE_ENV=test && ts-node-dev ./node_modules/typeorm/cli.js -c test migration:run",
     "test": "sh -ac './.env.test; jest'",
-    "posttest": "SET NODE_ENV=test && ts-node-dev ./node_modules/typeorm/cli.js -c test migration:revert"
+    "posttest": "SET NODE_ENV=test && ts-node-dev ./node_modules/typeorm/cli.js -c test migration:revert-all"
   },
   "dependencies": {
     "celebrate": "^14.0.0",
