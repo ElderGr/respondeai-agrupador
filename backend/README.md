@@ -43,7 +43,8 @@ Backend do AGRUPADOR, aplicação que exibe grupos próximos a sua localização
 - Testes unitários
 - Testes de integração
 - Validação/Tratamento de erros
-- ORM 
+- ORM
+- API REST
 
 # Equação de Heversine
 http://www.movable-type.co.uk/scripts/latlong.html
