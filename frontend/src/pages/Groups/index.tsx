@@ -31,12 +31,7 @@ const Groups: React.FC = () => {
         navigator.geolocation.getCurrentPosition(async (position) => {
             const { latitude, longitude } = position.coords;
             
-            const { data } = await api.get('groups', {
-                headers: {
-                    latitude,
-                    longitude
-                }
-            })
+            const { data } = await api.get(`groups?lat=${latitude}&lng=${longitude}`)
             
             setGroups(data)
             setInitialPosition([latitude, longitude]);
@@ -136,6 +131,7 @@ const Groups: React.FC = () => {
                             onChange={handleInputChange}
                             type="text"
                             id='name'
+                            value={formData.name}
                             name='name'
                         />
                         <span>{errors.name}</span>
@@ -147,6 +143,7 @@ const Groups: React.FC = () => {
                             type="text"
                             id='link'
                             name='link'
+                            value={formData.link}
                         />
                         <span>{errors.link}</span>
                     </div>
@@ -157,6 +154,7 @@ const Groups: React.FC = () => {
                             type="text"
                             id='description'
                             name='description'
+                            value={formData.description}
                         />
                         <span>{errors.description}</span>
                     </div>
